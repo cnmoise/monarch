@@ -9,8 +9,7 @@ include('includes/header.html');
 ?>
 	<div class="container">
 		<div class="jumbotron" style="padding-right: 0px;padding-left: 0px;">
-<!-- 				<img src="gmcimages/place.jpg" id="banner" style="border-radius:20px;border:10px solid #021a40;">
- -->			<div class="center">
+				<div class="center">
 					<h1 class="display-3">Search Flight</h1>
 					<form>
 					  <div class="input-group">
@@ -21,8 +20,8 @@ include('includes/header.html');
 						  <input type="text" aria-label="arrival" class="form-control" placeholder="Arrival City">
 						  <input type="text" aria-label="date" class="form-control" placeholder="10/10/2018">
 						</div>
-					  <button type="submit" class="btn btn-primary">Submit</button>
 					</form>
+					<form method='get' action='flightsearch.php'><input type='submit' value='Search Flight' class='postRedirForm button'></form>
 				</div>
 		  </div>
 
