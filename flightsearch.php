@@ -12,7 +12,7 @@ include('includes/header.html');
 		  <thead>
 		    <tr>
 		    	<th scope="col">Flight ID</th>
-		    	<th scope="col">Company</th>
+		    	<th scope="col">Airline</th>
 		    	<th scope="col">Departure City</th>
 		    	<th scope="col">Arrival City</th>
 		    	<th scope="col">Cost</th>
@@ -72,16 +72,35 @@ include('includes/header.html');
 
 	<div class="row marketing">
         <div class="col-lg-6">
-          <h4>Create New Post</h4>
-          
-        	<div class="input-group">
-			  <textarea class="form-control" aria-label="content" placeholder="Please title your post..."></textarea>
-			</div>
-        	<div class="input-group">
-			  <textarea class="form-control" aria-label="content" placeholder="Write a funny or insighrful story from your travels..."></textarea>
+          <h4>Create New Flight Entry</h4>
+
+			<div class="input-group">
+				<input type="text" aria-label="airline" class="form-control" placeholder="Airline">
+				<input type="text" aria-label="cost" class="form-control" placeholder="Cost">
 			</div>
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<div class="input-group">
+				<input type="text" aria-label="departure_city" class="form-control" placeholder="Departure City">
+				<input type="text" aria-label="arrival_city" class="form-control" placeholder="Arrival City">
+			</div>
+
+        	<div class="input-group">
+				<div class="input-group-prepend">
+				    <span class="input-group-text">Departure/Arrival Date</span>
+				</div>
+				<input type="text" aria-label="departure_date" class="form-control" placeholder="mm/dd/yyyy">
+				<input type="text" aria-label="arrival_date" class="form-control" placeholder="mm/dd/yyyy">
+			</div>
+          
+        	<div class="input-group">
+				<div class="input-group-prepend">
+				    <span class="input-group-text">Departure/Arrival Time</span>
+				</div>
+				<input type="text" aria-label="departure_time" class="form-control" placeholder="hh:mm:ss">
+				<input type="text" aria-label="arrival_time" class="form-control" placeholder="hh:mm:ss">
+			</div>
+
+			<form method='get' action='flightentry.php'><input type='submit' value='Search Flight' class='postRedirForm button'></form>
         </div>
 	</div>
 
