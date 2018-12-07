@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $page_title; ?></title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<link href="css/home.css" rel="stylesheet">
+
+
+</head>
+	<body>
+		<nav class="navbar-inverse" role="navigation">
+			<div class="navbar-header">
+                <a href="index.php"><img src="images/monarch.png" class="img-rounded" style="float: left;"></a>
+            </div>
+
+			<div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+
+					<li><a class="nav-item nav-link" href="index.php">Home</a></li>
+					<li><a class="nav-item nav-link" href="blog.php">Blog</a></li>
+					<li><a class="nav-item nav-link" href="forum.php">Forum</a></li>
+                    <!-- drop down menu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">I'm Crazy <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Drop</a></li>
+                            <li><a href="#">Down</a></li>
+							<li><a href="#">Menus</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="nav-item nav-link" href="login.php">Login</a></li>
+		            <li><a class="nav-item nav-link" href="register.php">Register</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+							
+				</button>
+			</div>
+        </nav> <!--  class="container" -->
+			
+	</body>
+</html>
