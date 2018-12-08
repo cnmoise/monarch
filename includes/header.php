@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +31,16 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-					<li><a class="nav-item nav-link" href="login.php">Login</a></li>
-		            <li><a class="nav-item nav-link" href="register.php">Register</a></li>
+                	<li><a class="nav-item nav-link" href="view_users.php">See All Users</a></li>
+                	<?php 
+
+		            	if(isset($_SESSION['userID'])){
+							echo'<li><a class="nav-item nav-link" href="logout.php">Logout</a></li>';
+						} else {
+							echo'<li><a class="nav-item nav-link" href="login.php">Login</a></li>';
+			                echo'<li><a class="nav-item nav-link" href="register.php">Register</a></li>';
+						}
+		            ?>
                 </ul>
             </div>
 			</button>

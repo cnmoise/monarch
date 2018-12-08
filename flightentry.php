@@ -5,7 +5,7 @@ function create_ad() {
   echo '<div class="alert alert-info" role="alert"><p>This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p></div>';
 } // End of the function definition.
 $page_title = 'Monarch Homepage';
-include('includes/header.html');
+include('includes/header.php');
 ?>
 	<div class="container">
 		<div class="row marketing">
@@ -58,6 +58,9 @@ include('includes/header.html');
 					</div>
 					<input type="text" aria-label="card_holder_fname" class="form-control" placeholder="First Name">
 					<input type="text" aria-label="card_holder_lname" class="form-control" placeholder="Last Name">
+				</div>
+				<div class="input-group">
+					<input type="text" aria-label="creditcard_number" class="form-control" placeholder="Creditcard Number">
 				</div>
 				<div class="input-group">
 					<div class="input-group-prepend">

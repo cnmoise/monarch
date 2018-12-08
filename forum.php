@@ -5,7 +5,7 @@ function create_ad() {
   echo '<div class="alert alert-info" role="alert"><p>This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p></div>';
 } // End of the function definition.
 $page_title = 'Monarch Homepage';
-include('includes/header.html');
+include('includes/header.php');
 ?>
 	<div class="container">
 		<table class="table table-bordered posts">

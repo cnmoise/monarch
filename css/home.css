@@ -19,6 +19,11 @@ h6, .h6 {
 .container{
 	padding-top:5%;
 }
+/*.center {
+    
+    top: 30%;
+    width: 100%;
+}*/
 
 .nav-item{
 	font-size: 22px;
@@ -98,7 +103,6 @@ margin-left:auto;
 
 	border: 6px solid #b9936c;
 	border-radius: 20px;
-	width:60%;
 	text-align:center;
 }
 

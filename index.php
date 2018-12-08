@@ -5,10 +5,10 @@ function create_ad() {
   echo '<div class="alert alert-info" role="alert"><p>This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p></div>';
 } // End of the function definition.
 $page_title = 'Monarch Homepage';
-include('includes/header.html');
+include('includes/header.php');
 ?>
 	<div class="container">
-		<div class="jumbotron" style="padding-right: 0px;padding-left: 0px;">
+		<div class="jumbotron">
 				<div class="center">
 					<h1 class="display-3">Search Flight</h1>
 					<form>
@@ -22,6 +22,7 @@ include('includes/header.html');
 						</div>
 					</form>
 					<form method='get' action='flightsearch.php'><input type='submit' value='Search Flight' class='postRedirForm button'></form>
+					<form method='get' action='flightsearch.php'><input type='submit' value='Show All Flights' class='postRedirForm button'></form>
 				</div>
 		  </div>
 
