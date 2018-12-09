@@ -1,9 +1,4 @@
-<?php # Script 3.7 - index.php #2
-// This function outputs theoretical HTML
-// for adding ads to a Web page.
-function create_ad() {
-  echo '<div class="alert alert-info" role="alert"><p>This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p></div>';
-} // End of the function definition.
+<?php
 $page_title = 'Monarch Homepage';
 include('includes/header.php');
 ?>

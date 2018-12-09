@@ -1,20 +1,21 @@
-<?php # Script 9.6 - view_users.php #2
-// This script retrieves all the records from the users table.
+<?php
 $page_title = 'View the Current Users';
 include('includes/header.php');
-// Page header:
+
 echo '<h1>Registered Users</h1>';
 require('mysqli_connect.php'); // Connect to the db.
 
 //make the query
 //AS nicknames column
 //date format makes a date
-$q = "SELECT CONCAT(last_name, ',', first_name) AS name, DATE_FORMAT(registration_date, '%M %d %Y') AS dr FROM users ORDER BY registration_date ASC";
+$q = "SELECT CONCAT(lastName, ',', firstName) AS name, DATE_FORMAT(registration_date, '%M %d %Y') AS dr FROM users ORDER BY registration_date ASC";
 
 $r = @mysqli_query($dbc, $q);
 
 // Count the number of returned rows:
 $num = mysqli_num_rows($r);
+
+echo '<div class= "container">';
 
 //query returns true if it ran succesfully
 if($num > 0){
@@ -46,7 +47,7 @@ if($num > 0){
 } else { // If no records were returned.
 	echo '<p class="error">There are currently no registered users.</p>';
 }
-
+echo '</div>';//container
 
 				
 mysqli_close($dbc); // Close the database connection.

@@ -27,7 +27,7 @@ include ('includes/header.php');
 			if (isset($_POST['firstName'])) echo $_POST['firstName'];  -->
 		<form action="login.php" method="post">
 			<div class="input-group">
-				<input type="text" aria-label="email" name="email" class="form-control" placeholder="Email Address" maxlength="20" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+				<input type="text" aria-label="username" name="username" class="form-control" placeholder="Username" maxlength="20" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
 			</div>
 			<div class="input-group">
 				<input type="password" aria-label="password" name="password" class="form-control" placeholder="Password" maxlength="20" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">

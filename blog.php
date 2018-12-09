@@ -1,12 +1,27 @@
-<?php # Script 3.7 - index.php #2
-// This function outputs theoretical HTML
-// for adding ads to a Web page.
-function create_ad() {
-  echo '<div class="alert alert-info" role="alert"><p>This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p></div>';
-} // End of the function definition.
+<?php
+
 $page_title = 'Monarch blog';
 include('includes/header.php');
 
+$q = "SELECT blogID, userID, blogPostTitle, blogPostContent, DATE_FORMAT(dateTimePosted, '%M %d %Y') AS dtp FROM blogposts ORDER BY dateTimePosted ASC";
+
+$r = @mysqli_query($dbc, $q);
+$num = mysqli_num_rows($r);
+
+// Hide the post form if the user is not an admin
+if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1){
+    ?>
+      <style type="text/css">#newBlogPost{
+        display:block;
+      }</style>
+    <?php
+  } else{
+  ?>
+    <style type="text/css">#newBlogPost{
+        display:none;
+      }</style>
+  <?php
+  }
 ?>
 
 <style>
@@ -16,6 +31,23 @@ include('includes/header.php');
 	<div class="container">
       <div class="row">
         <div class="col-sm-8 blog-main">
+          <div class="blog-post" id="newBlogPost">
+            <h2 class="blog-post-title">Create New Post</h2>
+
+            <form action="add_new_blog_post.php" method="POST">
+            <div class="input-group">
+              <!-- Name attribute is what gets posted to the server, make sure it lines up with what you need to retrieve -->
+              <input type="text" aria-label="title" name="blogPostTitle" placeholder="Please title your post..."
+              value="<?php if (isset($_POST['blogPostTitle'])) echo $_POST['blogPostTitle']; ?>">
+            </div>
+            <div class="input-group">
+              <textarea class="form-control" aria-label="content" name="blogPostContent" placeholder="Write a funny or insighrful story from your travels..."
+              value="<?php if (isset($_POST['blogPostContent'])) echo $_POST['blogPostContent']; ?>"></textarea>
+            </div>
+
+            <p><input type="submit" name="submit" class="button primary-btn" value="Create New Blog Post"></p>
+            </form>
+          </div><!-- NEW BLOG POST -->
 
           <div class="blog-post">
             <h2 class="blog-post-title">Amsterdam is Dope</h2>

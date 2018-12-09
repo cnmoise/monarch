@@ -11,9 +11,8 @@
 		//db connection
 		require('mysqli_connect.php');
 
-		list($check, $data) =
-		check_login($dbc, $_POST['email'],
-			$_POST['password']);
+		//posted from login_page.inc.php
+		list($check, $data) = check_login($dbc, $_POST['username'], $_POST['password'], $_POST['isAdmin']);
 
 		if ($check){
 			session_start();
@@ -21,7 +20,9 @@
 			//must be declared before any other data sent to browser
 			//we use $_SESSION['userID'] to verify if the user has been logged in
 			$_SESSION['userID'] = $data['userID'];
+			//TODO: Admin Status
 			$_SESSION['firstName'] = $data['firstName'];
+			$_SESSION['isAdmin'] = $data['isAdmin'];
 			//sends the user to the welcome page
 			redirect_user('loggedin.php');
 		} else {

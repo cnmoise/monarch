@@ -17,14 +17,14 @@ function redirect_user ($page = 'index.php'){
 }
 
 //validate form data and check that its in the DB
-function check_login($dbc, $email = '', $password = ''){
+function check_login($dbc, $username = '', $password = '', $isAdmin = ''){
 	$errors = array();
 
-	//validate email
-	if(empty($email)){
-		$errors[] = 'You forgot to enter your email';
+	//validate username
+	if(empty($username)){
+		$errors[] = 'You forgot to enter your username';
 	} else {
-		$e = mysqli_real_escape_string($dbc, trim($email));
+		$u = mysqli_real_escape_string($dbc, trim($username));
 	}
 
 	if(empty($password)){
@@ -33,17 +33,19 @@ function check_login($dbc, $email = '', $password = ''){
 		$p = mysqli_real_escape_string($dbc, trim($password));
 	}
 
+	$isAdmin = 0;
+
 	//no dumb user errors
 	if(empty($errors)){
-		//get email/password from the server
-		$q = "SELECT userID, firstName FROM users WHERE email='$e' AND password=SHA1('$p')";
+		//get username/password from the server
+		$q = "SELECT userID, firstName, isAdmin FROM users WHERE username='$u' AND password=SHA1('$p')";
 		$r = @mysqli_query ($dbc, $q); 
 
 		if(mysqli_num_rows($r) == 1){
 			$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 			return array(true, $row);
 		} else {
-			$errors[] = 'The email and passwords entered do not match our records';
+			$errors[] = 'The username and passwords entered do not match our records';
 		}
 
 	}//end empty($errors)

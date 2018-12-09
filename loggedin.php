@@ -12,8 +12,13 @@
 	$page_title = 'Logged In!';
 	include ('includes/header.php');
 
+	echo '<div class= "container">';
+	if($_SESSION['isAdmin'] == 1){
+		echo'<h1>WELCOME ADMIN</h1>';
+	}
 	echo "<h1>Logged In!</h1>
 	<p>Welcome Back, {$_SESSION['firstName']}</p>";
+	echo '</div>';
 
 	include ('includes/footer.html');
 ?>

@@ -5,6 +5,8 @@
 
 //put this folder in a safe place to prevent others from using it
 
+//AKA configuration file
+
 define('DB_USER', 'cs319_1_fall2018_group2_db');
 define('DB_PASSWORD', 'cs319Vq@@Qs');
 define('DB_HOST', 'localhost');
@@ -16,5 +18,8 @@ $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not
 
 //sets character encoding
 mysqli_set_charset($dbc, 'utf8');
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 //omited the closing tag for reasons

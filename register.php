@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if (empty($_POST['username'])) {
 		$errors[] = 'You forgot to enter your username.';
 	} else {
-		$ln = mysqli_real_escape_string($dbc, trim($_POST['username']));
+		$u = mysqli_real_escape_string($dbc, trim($_POST['username']));
 	}
 	// Check for an email address:
 	if (empty($_POST['email'])) {
@@ -50,8 +50,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//no dumb user errors
 	if(empty($errors)){
 		//register user in DB
-
-		require('mysqli_connect.php');
 		//abreviated data collected from the above fields
 		$q = "INSERT INTO users (username, firstName, lastName, email, password, registration_date) VALUES ('$u', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
 		$res = @mysqli_query($dbc, $q);
@@ -66,27 +64,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			echo '<p>' . mysqli_error($dbc) . '<br><br>Query: ' . $q . '</p>';
 		}
 
-	//}
-
 	mysqli_close($dbc); // Close the database connection.
 	// Include the footer and quit the script:
 	include('includes/footer.html');
 	exit();
-} else { // errors are reported in the body
-		// echo '<h1>Error!</h1>
-		// <p class="error">The following error(s) occurred:<br>';
-		// foreach ($errors as $msg) { // Print each error.
-		// 	echo " - $msg<br>\n";
-		// }
-		// echo '</p><p>Please try again.</p><p><br></p>';
-	} // End of if (empty($errors)) IF.
-	mysqli_close($dbc); // Close the database connection.
+} // errors are reported in the body
+	// mysqli_close($dbc); // Close the database connection.
 } // End of the main Submit conditional.
 ?>
 
 
 <div class="container">
 	<div class="row marketing">
+
+		<!-- Gathers all of the data needed to register the user and sends it to the DB -->
         <div class="col-lg-6">
           <h1>Register</h1>
           <!--  
@@ -99,18 +90,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				<input type="text" aria-label="lastName" name="lastName" class="form-control" placeholder="Last Name" maxlength="20" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
 			</div>
 			<div class="input-group">
-				<input type="text" aria-label="email" name="email" class="form-control" placeholder="Email Address" maxlength="20" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+				<input type="text" aria-label="email" name="email" class="form-control" placeholder="Email Address" maxlength="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
 			</div>
 			<div class="input-group">
 				<input type="password" aria-label="password" name="pass1" class="form-control" placeholder="Password" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>">
 				<input type="password" aria-label="password" name="pass2" class="form-control" placeholder="Confirm Password" maxlength="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>">
 			</div>
-			<!-- <p>First Name: <input type="text" name="firstName" size="15" maxlength="20" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>"></p> -->
-			<!-- <p>Last Name: <input type="text" name="lastName" size="15" maxlength="40" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>"></p> -->
-			<!-- <p>Username: <input type="text" name="username" size="15" maxlength="40" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"></p> -->
-			<!-- <p>Email Address: <input type="email" name="email" size="20" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" > </p> -->
-			<!-- <p>Password: <input type="password" name="pass1" size="10" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" ></p>
-			<p>Confirm Password: <input type="password" name="pass2" size="10" maxlength="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>" ></p> -->
 			<p><input type="submit" name="submit" class="button primary-btn" value="Register"></p>
 		</form>
         </div>
