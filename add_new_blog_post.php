@@ -3,6 +3,9 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// This file creates an insert into statement and is the main way we get new data into the database
+// An alternative would be to create json data files
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 	//errors array, every time user forgets something
